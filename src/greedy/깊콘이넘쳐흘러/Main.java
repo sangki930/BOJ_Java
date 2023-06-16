@@ -34,6 +34,7 @@ public class Main {
         for(int i=0;i<n;i++){
             pq.offer(new Gifticon(a[i],b[i]));
         }
+
         int answer = 0;
         while(!pq.isEmpty()){
             Gifticon gifticon = pq.poll();
