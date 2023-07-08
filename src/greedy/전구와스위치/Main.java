@@ -1,30 +1,73 @@
 package greedy.전구와스위치;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.*;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
+    static StringBuilder sb = new StringBuilder();
 
-        int n = Integer.parseInt(br.readLine());
-        int[] arr = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
-        int[] goal = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
-        int answer=0;
-        for(int i=0;i<n;i++){
-                if(arr[i]==goal[i]){
-                    for(int j=Math.max(0,i-1);j<=Math.min(n-1,i+1);j++){
-                        arr[j]=arr[j]==0?1:0;
-                    }
+    static int N, ans1 = 0, ans2 = 0;
+    static int[] light1, light2, status;
 
-                    answer++;
-                }
-            System.out.println(Arrays.toString(arr));
+    private static void input() throws IOException {
+        N = Integer.parseInt(br.readLine());
+        light1 = new int[N+1];
+        light2 = new int[N+1];
+        status = new int[N+1];
+        String line1 = br.readLine();
+        String line2 = br.readLine();
+        for(int i=0; i<line1.length(); i++){
+            int num = Integer.parseInt(line1.substring(i, i + 1));
+            light1[i+1] = num; light2[i+1] = num;
+            status[i+1] = Integer.parseInt(line2.substring(i, i+1));
         }
-        if(!Arrays.equals(arr,goal)) answer = -1;
-        System.out.println(answer);
-        br.close();
+    }
+
+    private static void process() throws IOException{
+        if(status[1] == 1){
+            lightSwitch(light2, 1);
+            ans2 +=1;
+        }else{
+            lightSwitch(light1, 1);
+            ans1 +=1;
+        }
+
+        for(int i=2; i<=N; i++){
+            if(status[i-1] != light1[i-1]){
+                lightSwitch(light1, i); ans1+=1;
+            }
+            if(status[i-1] != light2[i-1]){
+                lightSwitch(light2, i); ans2 += 1;
+            }
+        }
+
+        if(!isSame(status, light1)) ans1 = Integer.MAX_VALUE;
+        if(!isSame(status, light2)) ans2 = Integer.MAX_VALUE;
+
+        if(ans1 == Integer.MAX_VALUE && ans2 == Integer.MAX_VALUE) System.out.println(-1);
+        else System.out.println(Math.min(ans1, ans2));
+    }
+
+    private static void lightSwitch(int[] light, int n) {
+        if(n != 1) light[n-1] = swap(light[n-1]);
+        light[n] = swap(light[n]);
+        if(n != N) light[n+1] = swap(light[n+1]);
+    }
+
+    private static int swap(int n){
+        return n == 0 ? 1 : 0;
+    }
+
+    private static boolean isSame(int[] light, int[] status){
+        for(int i=1; i<=N; i++)
+            if(light[i] != status[i]) return false;
+        return true;
+    }
+
+    public static void main(String[] args) throws IOException {
+        input();
+        process();
     }
 }
