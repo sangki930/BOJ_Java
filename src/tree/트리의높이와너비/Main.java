@@ -13,7 +13,7 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         ArrayList<Integer>[] graph = new ArrayList[n+1];
-
+        // 트리느이
         for(int i=1;i<=n;i++){
             String[] tmp = br.readLine().split(" ");
         }
