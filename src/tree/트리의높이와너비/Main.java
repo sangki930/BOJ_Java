@@ -70,7 +70,7 @@ public class Main {
             }
             return Integer.compare(Math.abs(b[1]-b[2]),Math.abs(a[1]-a[2]));
         });
-
+//
 //        for(int[] l : levels){
 //            System.out.println(Arrays.toString(l));
 //        }
