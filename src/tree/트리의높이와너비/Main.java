@@ -71,7 +71,6 @@ public class Main {
             return Integer.compare(Math.abs(b[1]-b[2]),Math.abs(a[1]-a[2]));
         });
 
-
         System.out.println(levels[0][0]+" "+(levels[0][1]-levels[0][2]+1));
         br.close();
     }
