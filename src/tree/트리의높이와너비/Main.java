@@ -71,9 +71,7 @@ public class Main {
             return Integer.compare(Math.abs(b[1]-b[2]),Math.abs(a[1]-a[2]));
         });
 
-//        for(int[] l : levels){
-//            System.out.println(Arrays.toString(l));
-//        }
+
         System.out.println(levels[0][0]+" "+(levels[0][1]-levels[0][2]+1));
         br.close();
     }
