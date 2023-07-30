@@ -30,7 +30,6 @@ public class Main{
         }
         dfs(1,0);
         int m = Integer.parseInt(br.readLine());
-//        System.out.println(Arrays.toString(graph));
         for(int i=0;i<m;i++){
             tmp = br.readLine().split(" ");
             int s=Integer.parseInt(tmp[0]), e = Integer.parseInt(tmp[1]);
