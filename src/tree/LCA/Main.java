@@ -42,7 +42,6 @@ public class Main{
         if(visited[node]) return;
         visited[node] = true;
         depth[node] = level;
-//        System.out.println(graph[node]);
         for(int e : graph[node]){
             if(!visited[e]){
                 parents[e] = node;
