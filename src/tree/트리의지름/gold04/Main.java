@@ -11,6 +11,7 @@ public class Main {
         for(int i=0;i<n-1;i++){
             String[] tmp = br.readLine().split(" ");
             int p = Integer.parseInt(tmp[0]);
+
         }
         br.close();
     }
