@@ -12,6 +12,7 @@ public class Main {
             String[] tmp = br.readLine().split(" ");
             int p = Integer.parseInt(tmp[0]);
         }
+        // 브랜치
         br.close();
     }
 }
