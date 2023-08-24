@@ -25,7 +25,6 @@ public class Main {
         for(int i=0;i<n;i++){
             int v = Integer.parseInt(input[i]);
             while(!queue.isEmpty() && queue.peekLast().v>v) queue.pollLast();
-
             queue.offer(new Data(i,v));
             if(queue.peek().id<i-(l-1)) queue.poll();
             sb.append(queue.peek().v+" ");
