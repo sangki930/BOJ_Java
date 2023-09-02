@@ -19,11 +19,13 @@ public class Main {
         for(int i=0;i<n;i++)
             map[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         int answer = 0;
+        int answer2 = 0;
         while(true){
             LinkedList<int[]> queue = new LinkedList<>();
             queue.offer(new int[]{0,0});
             map[0][0] = 2;
             int cnt = 1;
+
             while(!queue.isEmpty()){
                 int[] p = queue.poll();
                 for(int i=0;i<4;i++){
@@ -37,7 +39,7 @@ public class Main {
                 }
             }
             if(cnt==n*m) break;
-
+            answer2 = 0;
             // 가장자리엔 치즈가 없다.
             for(int i=1;i<n-1;i++){
                 for(int j=1;j<m-1;j++){
@@ -48,7 +50,10 @@ public class Main {
                         int ny = j+dy[k];
                         if(map[nx][ny]==2) outer++;
                     }
-                    if(outer>=2) map[i][j] = 3;
+                    if(outer>=1) {
+                        map[i][j] = 3;
+                        answer2++;
+                    }
                 }
             }
 
@@ -60,10 +65,15 @@ public class Main {
                 }
             }
 
+//            for(int i=0;i<n;i++)
+//                System.out.println(Arrays.toString(map[i]));
+//            System.out.println("==================================");
+
             answer++;
         }
 
         System.out.println(answer);
+        System.out.println(answer2);
 
         br.close();
     }
