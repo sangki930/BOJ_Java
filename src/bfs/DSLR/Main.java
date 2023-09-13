@@ -28,8 +28,6 @@ public class Main {
 
             LinkedList<Data> queue = new LinkedList<>();
             queue.offer(new Data(input[0],""));
-//            String[] visited = new String[10000];
-//            visited[input[0]] = "";
             boolean[] visited = new boolean[10000];
             while (!queue.isEmpty()){
                 Data data = queue.poll();
