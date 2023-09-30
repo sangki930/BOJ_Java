@@ -76,10 +76,6 @@ public class Main {
 
                 }
             }
-
-//            for(int i=0;i<r;i++)
-//                System.out.println(Arrays.toString(map[i]));
-//            System.out.println("==================================");
         }
 
         if(answer == Integer.MAX_VALUE){
