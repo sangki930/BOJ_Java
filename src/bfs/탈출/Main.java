@@ -57,7 +57,7 @@ public class Main {
                 answer = Math.min(answer,data.time);
                 continue;
             }
-
+            //
             for(int i=0;i<4;i++){
                 int nx = data.x+dx[i];
                 int ny = data.y+dy[i];
