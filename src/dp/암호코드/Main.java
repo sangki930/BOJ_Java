@@ -21,6 +21,8 @@ public class Main {
             int a = Integer.parseInt(s.substring(i-2,i));
         }
 
+        // 11~19, 20~26
+
         br.close();
     }
 }
