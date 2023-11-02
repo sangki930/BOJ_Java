@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class Main {
 
-    static Map<String,Integer> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
