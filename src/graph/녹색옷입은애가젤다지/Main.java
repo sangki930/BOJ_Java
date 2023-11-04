@@ -14,7 +14,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 
-        for(int i=1;;i++){ss
+        for(int i=1;;i++){
             int n = Integer.parseInt(br.readLine());
             if(n==0) break;
             int[][] arr = new int[n][n];
