@@ -1,40 +1,59 @@
 package implementation.킥다운;
 
+import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
 
-// 킥다운
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        int[] top = new int[200];
-        String[] input = br.readLine().split("");
-        int top_len = input.length;
-        for(int i=0;i< input.length;i++){
-            top[i] = Integer.parseInt(input[i]);
-        }
-        int[] bottom = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
-        int answer = 200;
-        for(int i=0;i<top_len;i++){
-            int[] cl = top.clone();
-            int max = -1;
-            for(int j=0;j<bottom.length;j++){
-                cl[i+j]+=bottom[j];
-                max = Math.max(max,cl[i+j]);
-            }
-            System.out.println(Arrays.toString(cl));
-            if(max<=3){
-                int len = 0;
-                for(len=0;len<cl.length;len++){
-                    if(cl[len]==0) break;
+
+        String gearA = br.readLine();
+        String gearB = br.readLine();
+
+        int sumlen = gearA.length() + gearB.length();
+        int ans = gearA.length() + gearB.length();
+
+        int ai = gearA.length() -1;
+        int aj = gearA.length() -1;
+        int bi = 0;
+        int bj = 0;
+
+        while (true) {
+
+            boolean for_else = true;
+            for (int i = 0; i < aj-ai + 1; i++) {
+                char a = gearA.charAt(ai + i);
+                char b = gearB.charAt(bi + i);
+                if (a == b && b == '2') {
+                    for_else = false;
+                    break;
                 }
-                answer = Math.min(answer,len);
+            }
+
+            if (for_else) {
+                ans = Math.min(ans, sumlen - (aj-ai + 1));
+            }
+
+            ai -= 1;
+            if (ai == -1) {
+                ai = 0;
+                bi += 1;
+            }
+
+            bj += 1;
+            if (bj == gearB.length()) {
+                bj = gearB.length() -1;
+                aj -= 1;
+            }
+
+            if (ai > aj || bi > bj) {
+                break;
             }
         }
-        System.out.println(answer);
-        br.close();
+
+        System.out.println(ans);
+
     }
+
 }
