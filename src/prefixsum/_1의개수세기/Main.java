@@ -9,11 +9,32 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String[] input = br.readLine().split(" ");
-        int a = Integer.parseInt(input[0]);
-        int b = Integer.parseInt(input[1]);
-        // 1 10 11 100 101 110 111 1000 1001 1010 1011
-        // 1 1 2 1 2 3 1 2 2 3
+        long a = Long.parseLong(input[0]);
+        long b = Long.parseLong(input[1]);
+
+        System.out.println(getCnt(b)-getCnt(a-1));
 
         br.close();
+    }
+
+    public static long getCnt(long n){
+        long div = 1;
+        long sum = 0;
+        while(n>=div){
+            long zero_range_min = 0;
+            long zero_range_max = div-1;
+            long one_range_min = div;
+            long one_range_max = div*2-1;
+            long mod = n%(div*2); // 나머지
+            long t = n/(div*2); //몫
+
+            if(zero_range_min<=mod && mod<=zero_range_max){
+                sum += div*t;
+            }else if(one_range_min<=mod && mod<=one_range_max){
+                sum += div*t + (mod-zero_range_max);
+            }
+            div*=2;
+        }
+        return sum;
     }
 }
