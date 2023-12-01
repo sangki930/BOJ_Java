@@ -18,7 +18,6 @@ public class Main {
         int n = Integer.parseInt(input[0]), l =Integer.parseInt(input[1]);
 
         for(int i=0;i<n;i++){
-
         }
 
         br.close();
