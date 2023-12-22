@@ -9,10 +9,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         int[] dp = new int[1000001];
-        // 1 : 1
-        // 2 : 2, 1+1
-        // 3 : 1+2, 1+1+1
-        // 4 : 4, 2+2, 1+1+2, 1+1+1+1
+
         dp[1] = 1;
         dp[2] = 2;
         for(int i=3;i<dp.length;i++){
