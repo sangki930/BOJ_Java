@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Main {
 
-//    static int[][] mat;
     static ArrayList[] graph;
     static int answer = 0;
     static int n,m;
