@@ -3,6 +3,9 @@ package priorityqueue.강의실;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.PriorityQueue;
 
 class Range{
@@ -20,32 +23,27 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        PriorityQueue<Range> pq = new PriorityQueue<>(
-                (a,b)->{
-                    if(a.s==b.s)
-                        return Integer.compare(b.e,a.e);
-                    return Integer.compare(a.s,b.s);
-                }
-        );
-
-        for(int i=0;i<n;i++){
+        List<Range> list = new ArrayList<>();
+        for(int i=0;i<n;i++) {
             String[] input = br.readLine().split(" ");
             int id = Integer.parseInt(input[0]);
-            int s = Integer.parseInt(input[1]);
-            int e = Integer.parseInt(input[2]);
-            pq.offer(new Range(id, s, e));
+            int s = Integer.parseInt(input[1]), e = Integer.parseInt(input[2]);
+            list.add(new Range(id, s, e));
         }
+        list.sort((o1,o2)->Integer.compare(o1.s,o2.s));
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
         int answer = 1;
-        int tmp = pq.poll().e;
-        while(!pq.isEmpty()){
-            Range r = pq.poll();
-            if(r.s<tmp){
-                answer++;
-            }else{
-                tmp = r.s;
+        for(int i=0;i<n;i++){
+            Range r = list.get(i);
+            while(!pq.isEmpty() && pq.peek()<=r.s){
+                pq.poll();
             }
+            pq.offer(r.e);
+            answer = Math.max(pq.size(),answer);
         }
         System.out.println(answer);
+
         br.close();
     }
 }
