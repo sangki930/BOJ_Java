@@ -43,7 +43,6 @@ public class Main {
         while(!stack.isEmpty()){
             answer  = stack.pop().text+answer;
         }
-
         System.out.println(answer);
         br.close();
     }
