@@ -12,6 +12,10 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int[] acc = new int[n+1];
+        for(int i=0;i<arr.length;i++){
+            acc[i] = acc[i-1]+arr[i-1];
+        }
 
 
         br.close();
