@@ -20,41 +20,7 @@ public class Main {
 
         int answer = Integer.MAX_VALUE;
 
-        // 조커 없음
-        int[] used = new int[m]; // 같은 번호의 카드가 몇번 등장하는 지
-        boolean flag = true;
-        for(int i=0;i<boxes.length;i++){
-            if(isBoxEmpty(boxes[i])) continue;
-
-        }
-
-
-
         br.close();
     }
 
-    public static boolean isBoxEmpty(int[] box){
-        for(int i=0;i<box.length;i++){
-            if(box[i]!=0) return  false;
-        }
-        return true;
-    }
-
-    public static int isOnlyOneColor(int[] box){
-        int zero = 0;
-        int nonzero = 0;
-        int num = 0;
-        for(int i=0;i<box.length;i++){
-            if(box[i]==0){
-                zero++;
-            }else if(box[i]>0){
-                num = i;
-                nonzero++;
-            }
-        }
-        if(nonzero == 1){
-            return num;
-        }
-        return -1;
-    }
 }
