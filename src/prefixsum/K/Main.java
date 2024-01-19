@@ -17,6 +17,10 @@ public class Main {
             acc[i] = acc[i-1]+arr[i-1];
         }
 
+        for(int i=0;i<arr.length;i++){
+
+        }
+
         br.close();
     }
 }
