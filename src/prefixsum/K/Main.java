@@ -12,16 +12,27 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
 
         int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        int[] acc = new int[n+1];
+        long[] acc = new long[n+1];
+        int l = 0;
+        long min = Long.MAX_VALUE;
         for(int i=0;i<arr.length;i++){
-            acc[i] = acc[i-1]+arr[i-1];
+            acc[i+1] = acc[i]+arr[i];
         }
 
-        for(int i=0;i<arr.length;i++){
-            for(int j=i;j<arr.length;j++){
-
+        for (int k = 1; k <= n / 2; k++) {
+            for (int j = k; j <= n; j++) {
+                for (int i = j+k; i<=n; i++) {
+                    long sub = Math.abs((acc[j] - acc[j - k]) - (acc[i] - acc[i - k]));
+                    if (sub <= min) {
+                        min = sub;
+                        l = k;
+                    }
+                }
             }
         }
+
+        System.out.println(l);
+        System.out.println(min);
 
         br.close();
     }
