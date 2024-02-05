@@ -21,7 +21,7 @@ public class Main {
             int cnt = 0;
             int idx = -1;
             for (int j = 0; j < m; j++) {
-                if (!st.nextToken().equals("0")) {
+                if (!"0".equals(st.nextToken())) {
                     cnt++;
                     idx = j;
                 }
