@@ -11,6 +11,18 @@ public class Main {
         String[] input = br.readLine().split(" ");
         long x = Integer.parseInt(input[0]), y = Integer.parseInt(input[1]);
 
+        long diff = y-x;
+        long day = 0;
+        loop : for(long i=1;i< Math.pow(2,31) ;i++){
+            for(int j=0;j<2;j++){
+                if(diff<=0L) {
+                    break loop;
+                }
+                day++;
+                diff -=i;
+            }
+        }
+        System.out.println(day);
         br.close();
     }
 }
