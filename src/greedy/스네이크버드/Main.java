@@ -17,7 +17,8 @@ public class Main {
         int answer = 0;
         for(int i=0;i<n;i++){
             if(arr[i]>h) break;
-            h++;answer++;
+            h++;
+            answer++;
         }
         System.out.println(h);
         br.close();
