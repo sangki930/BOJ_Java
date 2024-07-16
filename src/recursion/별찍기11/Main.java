@@ -11,7 +11,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         int m = n * 2 - 1;
-
         map = new String[n][m];
         for (int i = 0; i < n; i++) Arrays.fill(map[i], " ");
 
