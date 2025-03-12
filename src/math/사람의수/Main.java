@@ -23,7 +23,6 @@ public class Main {
         loop : for(;;){
             boolean flag = true;
             for(int j=0;j<arr.length;j++){
-
                 int tmp = i*arr[j];
                 if(tmp%1000 !=0) tmp = tmp - (tmp%1000)+1000;
                 int num = tmp/i;
