@@ -32,9 +32,9 @@ public class Main {
         map.put("G", 10);
         map.put("G#", 11);
 
-        //        줄
+        // 줄
         neck = new String[N];
-        //        코드
+        // 코드
         chord = new String[M];
         temp_chord = new String[N];
 
